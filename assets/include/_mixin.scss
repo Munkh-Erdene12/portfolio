@@ -1,0 +1,22 @@
+@mixin centerlaze {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin size($size1, $size2) {
+  width: $size1;
+  height: $size2;
+}
+
+@mixin position($left, $top, $width, $height) {
+  left: $left;
+  top: $top;
+  width: $width;
+  height: $height;
+}
+@mixin column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

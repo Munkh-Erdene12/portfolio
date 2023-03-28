@@ -1,0 +1,228 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  margin: auto;
+  max-width: 1150px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+:root {
+  --bg-black-900: #000;
+  --bg-black-100: #ddd;
+  --bg-black-50: #eff0f4;
+  --bg-text-900: #000;
+  --bg-text-700: #555;
+  --bg-text-600: #666;
+  --bg-text-300: #bbb;
+  --bg-opacity: rgba(43, 44, 47, 0.5);
+  --skin-color: #fb839e;
+  --outer-shadow: -3px -3px 3px #d0d0d0, 3px 3px 3px #f8f8f8;
+  --outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
+  --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+  --inner-shadow-0: inset 0 0 0 #d0d0d0, inset 0 0 0 #f8f8f8;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  background: var(--bg-black-50);
+  &.dark {
+    --bg-black-900: #fff;
+    --bg-black-100: #353535;
+    --bg-black-50: #2b2b2b;
+    --bg-text-900: #fff;
+    --bg-text-700: #fff;
+    --bg-text-600: #bbb;
+    --outer-shadow: -3px -3px 3px #222327, 3px 3px 3px #363636;
+    --outer-shadow-0: 0 0 0 #222327, 0 0 0 #363636;
+    --inner-shadow: inset 3px 3px 3px #222327, inset -3px -3px 3px #363636;
+    --inner-shadow-0: inset 0 0 0 #222327, inset 0 0 0 #363636;
+  }
+}
+
+.outer-shadow {
+  box-shadow: var(--outer-shadow);
+}
+.inner-shadow {
+  box-shadow: var(--inner-shadow);
+}
+
+.hover-in-shadow {
+  z-index: 1;
+  position: relative;
+  &:hover {
+    box-shadow: var(--outer-shadow-0);
+    &::after {
+      box-shadow: var(--inner-shadow);
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+}
+
+.alin-items-center {
+  align-items: center;
+}
+
+.btn-1 {
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--skin-color);
+  background: transparent;
+  line-height: 1.5;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
+  &::after {
+    border-radius: 30px;
+  }
+}
+
+.effect-wrap {
+  .effect {
+    z-index: -1;
+    position: absolute;
+  }
+  .effect-1 {
+    width: 30px;
+    height: 30px;
+    border: 4px solid #8a49ff;
+    right: 10%;
+    bottom: 10%;
+    animation: spin 10s linear infinite;
+  }
+  .effect-2 {
+    left: 3%;
+    bottom: 20%;
+    width: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    animation: topBounce 3s ease-in-out infinite;
+    div {
+      height: 3px;
+      width: 3px;
+      background: #ff9c07;
+      margin: 0 3px 8px;
+    }
+  }
+  .effect-3 {
+    height: 180px;
+    width: 180px;
+    border: 25px solid #06d79c;
+    border-radius: 50%;
+    left: 50%;
+    top: -150px;
+    animation: leftBounce 3s ease-in-out infinite;
+  }
+  .effect-4 {
+    border-top: 30px solid transparent;
+    border-left: 30px solid var(--skin-color);
+    left: 30%;
+    top: 20%;
+    animation: spin 15s linear infinite;
+    &::before {
+      content: "";
+      border-top: 30px solid transparent;
+      border-left: 30px solid var(--skin-color);
+      position: absolute;
+      opacity: 0.5;
+      left: -35px;
+      top: -25px;
+    }
+  }
+  .effect-5 {
+    width: 50px;
+    height: 50px;
+    right: 10%;
+    top: 30%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: spin 10s linear infinite;
+    div {
+      width: 1px;
+      background: #4dd0e1;
+    }
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes topBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(25px);
+  }
+}
+@keyframes leftBounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(25px);
+  }
+}
+
+.section-title {
+  padding: 0 15px;
+  max-width: 100%;
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+
+  h2 {
+    color: var(--bg-text-900);
+    font-weight: 700;
+    margin: 0;
+    display: inline-block;
+    &::before {
+      content: attr(data-heading);
+      display: block;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--skin-color);
+    }
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
+*:not(i) {
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+}
